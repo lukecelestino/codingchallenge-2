@@ -56,7 +56,7 @@ Response:
 		{
 			"_id": string,
 			"name": string,
-			"photo_url": string (Image URI),
+			"photo": string (Image URI),
 			"base_price": number,
 			"bid_type": number (1 = free, 2 = fixed),
 			"bid_step": number (Only if bid_type = 2),
@@ -95,7 +95,7 @@ Response:
 {
 	"owner": string,
 	"name": string,
-	"photo_url": string (Image URI),
+	"photo": string (Image URI),
 	"base_price": number,
 	"bid_type": number (1 = free, 2 = fixed),
 	"bid_step": number (Only if bid_type = 2),
@@ -124,7 +124,7 @@ Response:
 {
 	"owner": string,
 	"name": string,
-	"photo_url": string (Image URI),
+	"photo": string (Image URI),
 	"base_price": number,
 	"bid_type": number (1 = free, 2 = fixed),
 	"bid_step": number (Only if bid_type = 2),
