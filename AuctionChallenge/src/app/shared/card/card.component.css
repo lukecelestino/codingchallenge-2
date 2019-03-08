@@ -1,0 +1,27 @@
+.container-between {
+    display: flex;
+    justify-content: space-between
+}
+
+.container-center {
+    display: flex;
+    justify-content: center
+}
+
+.container-column {
+    display: flex;
+    flex-direction: column
+}
+
+.image-border {
+    border: 2px solid lightgray;
+    border-radius: 5px;
+}
+
+.single-padding {
+    padding: 8px
+}
+
+.align-text {
+    text-align: center;
+}

@@ -1,0 +1,47 @@
+<thf-page-default
+  [t-title]="auctionLiterals?.openAuctions">
+
+  <div class="thf-row">
+    <thf-widget
+      class="thf-xl-2 thf-lg-2 thf-md-6 thf-sm-12 container-column"
+      t-height="200"
+      tt-no-shadow="false">
+        <div class="thf-font-display">{{auctionParticipations}}</div>
+        <div class="thf-font-text-large centralize-text">{{auctionLiterals?.auctionsParticipated}}</div>
+    </thf-widget>
+    <thf-widget
+      class="thf-xl-2 thf-lg-2 thf-md-6 thf-sm-12 container-column"
+      t-height="200"
+      tt-no-shadow="false">
+        <div class="thf-font-display">{{bidsMade}}</div>
+        <div class="thf-font-text-large centralize-text">{{auctionLiterals?.bidsMade}}</div>
+    </thf-widget>
+    <thf-widget
+      class="thf-xl-2 thf-lg-2 thf-md-6 thf-sm-12 container-column"
+      t-height="200"
+      tt-no-shadow="false">
+        <div class="thf-font-display">{{auctionsWon}}</div>
+        <div class="thf-font-text-large centralize-text">{{auctionLiterals?.auctionsWon}}</div>
+    </thf-widget>
+    <thf-widget
+      class="thf-xl-2 thf-lg-2 thf-md-6 thf-sm-12 container-column"
+      t-height="200"
+      tt-no-shadow="false">
+        <div class="thf-font-subtitle">R$ {{cashOnBids.toFixed(2)}}</div>
+        <div class="thf-font-text-large centralize-text">{{auctionLiterals?.moneyOnBids}}</div>
+    </thf-widget>
+    <thf-widget
+      class="thf-xl-2 thf-lg-2 thf-md-6 thf-sm-12 container-column" [ngClass]="getBalanceStatus()"
+      t-height="200"
+      tt-no-shadow="false">
+        <div class="thf-font-subtitle">R$ {{labelAuctionBalance.toFixed(2)}}</div>
+        <div class="thf-font-text-large centralize-text">{{balanceLabel}}</div>
+    </thf-widget>
+  </div>
+
+  <div class="thf-pb-xl-2 thf-pb-lg-2 thf-pb-md-2 thf-pb-sm-2"></div>
+
+  <div *ngFor="let auction of otherUsersAuctions" class="thf-xl-4 thf-lg-6 thf-md-6 thf-sm-12">
+    <app-card [auction-info]="auction" (a-screen)="updateScreen()"></app-card>
+  </div>
+</thf-page-default>

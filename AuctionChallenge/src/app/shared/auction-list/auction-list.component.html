@@ -1,0 +1,37 @@
+<thf-list
+  [t-show-more-disabled]="showMoreListControl"
+  (t-show-more)="onShowMoreList($event)">
+
+  <thf-list-item
+    *ngFor="let auction of listItemData; let i = index"
+    [t-index]="i">
+
+    <thf-list-item-content>
+      <div class="container-between">
+        <img [src]="auction.photo">
+        <div class="thf-font-text-large-bold">{{auction.name}}</div>
+        <div class="container-column">
+          <div class="thf-font-text">{{auction.winner}}</div>
+          <div class="thf-font-text">{{auction.winnerInfo}}</div>
+        </div>
+        <div class="thf-font-subtitle">{{auction.winnerBid}}</div>
+        <div class="thf-font-text">{{auction.base_price}}</div>
+      </div>
+    </thf-list-item-content>
+    <thf-list-item-detail>
+      <div class="container-between">
+        <div class="container-column">
+          <div class="thf-font-display">{{auction.bidQuantity}}</div>
+          <div class="thf-font-text-large">{{auctionLiterals?.bidsMade}}</div>
+        </div>
+        <!-- <thf-chart
+          t-type="">
+
+        </thf-chart>
+        <thf-chart>
+
+        </thf-chart> -->
+      </div>
+    </thf-list-item-detail>
+  </thf-list-item>
+</thf-list>

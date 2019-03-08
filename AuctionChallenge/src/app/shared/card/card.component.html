@@ -1,0 +1,104 @@
+<thf-modal
+    #confirmBid
+    t-title="Dar lance!"
+    t-size="lg"
+    t-click-out="true"
+    t-hide-close="false"
+    [t-primary-action]="confirmBidAction"
+    [t-secondary-action]="cancelBidAction">
+
+    <thf-number
+      class="thf-lg-6"
+      t-required="true"
+      [(ngModel)]="bidValue"
+      t-label="Valor do lance"
+      [t-disabled]="auctionInfo.bid_type === 2"
+      t-min="1">
+    </thf-number>
+</thf-modal>
+
+<thf-widget
+  *ngIf="auctionInfo.status === 0 && currentUser === auctionInfo.owner"
+  class="delete-action"
+  t-height="auto"
+  (t-setting)="editAuction()"
+  [t-primary-label]="literals?.delete"
+  [t-secondary-label]="literals?.activate"
+  (t-primary-action)="deleteAuction(auctionInfo._id)"
+  (t-secondary-action)="activateAuction(auctionInfo._id)">
+
+  <div class="thf-row image-border">
+    <img [src]="auctionInfo.photo" [alt]="auctionInfo.name" width="100%" height="250px">
+  </div>
+
+  <div class="container-column">
+    <div class="thf-row container-between">
+      <div class="thf-font-text-bold">{{auctionInfo.name}}</div>
+      <div class="thf-font-text">{{auctionInfo.bid}}</div>
+    </div>
+    <div class="thf-font-text-large-bold">{{auctionInfo.labelPrice}}</div>
+  </div>
+
+</thf-widget>
+
+<thf-widget
+  *ngIf="auctionInfo.status !== 0 && currentUser === auctionInfo.owner"
+  t-height="auto">
+
+  <div class="thf-row image-border">
+    <img [src]="auctionInfo.photo" [alt]="auctionInfo.name" width="100%" height="250px">
+  </div>
+
+  <div class="container-column">
+    <div class="thf-row container-between">
+      <div class="thf-font-text-bold">{{auctionInfo.name}}</div>
+      <div class="thf-font-text">{{auctionInfo.bid}}</div>
+    </div>
+    <div class="thf-row container-between">
+      <div class="thf-font-text-large-bold">{{auctionInfo.labelPrice}}</div>
+      <div class="thf-font-text">{{auctionInfo.owner}}</div>
+    </div>
+    <div class="container-center thf-font-text-large-bold">
+      {{endAuctionDate}}
+    </div>
+  </div>
+</thf-widget>
+
+<thf-widget
+  *ngIf="auctionInfo.owner !== currentUser && auctionInfo.status === 1"
+  t-height="auto">
+
+  <div class="thf-row image-border">
+    <img [src]="auctionInfo.photo" [alt]="auctionInfo.name" width="100%" height="250px">
+  </div>
+
+  <div class="container-column">
+    <div class="thf-row container-between">
+      <div class="thf-font-text-bold">{{auctionInfo.name}}</div>
+      <div class="thf-font-text">{{auctionInfo.bid}}</div>
+    </div>
+    <div class="thf-row container-between">
+      <div class="thf-font-text-large-bold">{{auctionInfo.labelPrice}}</div>
+      <div class="thf-font-text">{{auctionInfo.owner}}</div>
+    </div>
+    <div class="container-center thf-font-text-large-bold">
+      {{endAuctionDate}}
+    </div>
+    <div class="container-column align-text">
+      <div class="thf-font-text-large-bold">Valor atual: R$ {{currentValue}}</div>
+      <div class="thf-font-text">{{currentWinner}}</div>
+    </div>
+  </div>
+
+  <thf-button
+    class="thf-xl-12 thf-pb-xl-1 thf-pt-xl-1 thf-pb-lg-1 thf-pt-lg-1 thf-pb-md-1 thf-pt-md-1 thf-pb-sm-1 thf-pt-sm-1"
+    t-label="Dar Lance!"
+    t-icon="thf-icon-money"
+    t-type="primary"
+    (t-click)="confirmBid.open()">
+  </thf-button>
+
+</thf-widget>
+
+<div class="thf-pb-xl-2 thf-pb-lg-2 thf-pb-md-2 thf-pb-sm-2"></div>
+

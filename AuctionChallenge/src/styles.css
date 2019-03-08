@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+.delete-action .thf-widget-md:first-child .thf-widget-action {
+    color: #C64840
+}
+
+.delete-action .thf-widget-md:first-child .thf-widget-action:hover {
+    color: #9E3933
+}
+
+.container-column .thf-widget-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
+
+.danger .thf-widget-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #C64840
+}
+
+.success .thf-widget-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #00B28E
+}
